@@ -122,4 +122,130 @@ for (const login of logins) {
         break;
     }
 }
-console.log(message);
+//console.log(message);
+
+
+const array1 = ["Mango", "hurries", "to", "the", "train"];
+//console.log(array1.join(" "));
+
+//console.log(array1.indexOf("to"));
+//console.log(array1.includes("banana"));
+
+
+
+// є рядок, що склад зі слів, розділених лише пробілами <message> 
+// та  число, що містить ціну <pricePerWord >
+// напиши код, що рахує загальну вартість гравірування слів в рядку
+
+// "JavaScript is in my blood", 10 повертає 50
+// "Web-development is creative work", 20 повертає 80
+
+
+const text = "JavaScript is in my blood";
+const pricePerWord = 10;
+
+const messageArray = text.split(" ");
+//console.log(messageArray);
+const price = messageArray.length * pricePerWord;
+//console.log(price);
+
+
+
+// storage - масив рядків, що описує доступні товари на складі
+// item - рядок з назвою товара, наявність якого потрібно перевірити
+// Доповни код , щоб перевіряти, чи присутній такий товар в масиві storage
+// і повертати:
+
+// рядок "<item> is available to order!", де item - це назва товара, якщо товар було знайдено
+// рядок "Sorry! We are out of stock!", якщо такого товара немає в масиві
+// Зроби так, щоб пошук за ім'ям товару був незалежний від регістру
+
+// ["apple", "plum", "pear"], "plum" повертає "plum is available to order!"
+// ["apple", "plum", "pear"], "pEAr" повертає "pear is available to order!"
+// ["apple", "plum", "pear"], "orange" повертає "Sorry! We are out of stock!"
+
+const storage = ["apple", "plum", "pear"];
+const item = "plum";
+
+const convertedItem = item.toLowerCase();
+const isIncluded = storage.includes(convertedItem) ;
+let answer;
+
+if (isIncluded) {
+    answer = "plum is available to order!"; 
+}else{
+    answer = "Sorry! We are out of stock!";
+}
+storage.push("banana");
+storage.unshift("cherry");
+//console.log(storage);
+
+//console.log(answer);
+
+
+const vegetables = ["carrot", "tomato", "potato", "cucumber", "onion", "beans"];
+const firstToElements = vegetables.slice(0,2);
+const lastToElements = vegetables.slice(-3);
+const nonExtremsElements = vegetables.slice(1, vegetables.length - 1);
+//console.log(nonExtremsElements);
+//console.log(lastToElements);
+//console.log(firstToElements);
+
+const oldClients = ["Mango", "Ajax", "Poly", "Kiwi"];
+const newClients = ["Peach", "Houston"];
+const allClients = oldClients.concat(newClients)
+//console.log(allClients);
+
+
+// array - масив довільних елементів
+// value - значення елемента масиву для пошуку
+// Доповни код так, 
+// щоб виконувати пошук значення value у масиві array 
+// і повертати:
+
+//  - порожній масив, якщо в array немає елемента зі значенням value
+//  - підмасив, що починається з початку array 
+//    і до елемента зі значенням value включно, якщо такий елемент є в array
+
+// ["Mango", "Poly", "Ajax"], "Poly" повертає ["Mango", "Poly"]
+// ["Mango", "Poly", "Ajax"], "Jacob" повертає []
+
+
+const array6 = ["Mango", "Poly", "Ajax"];
+const value = "Poly1";
+let arr = []
+const elemIndex = array6.indexOf(value);
+if(elemIndex !== -1){
+    arr = array6.slice(0, elemIndex + 1);
+}
+//console.log(elemIndex);
+
+const languages = ["C", "C++", "Java", "JavaScript"];
+languages.splice(1, 2);
+//console.log(languages);
+
+const colors = ["red", "green", "blue"];
+colors.splice(2,0, "yellow");
+//console.log(colors);
+
+const colors2 = ["red", "green", "blue"];
+
+colors2.splice(2,1,"purple");
+//console.log(colors2);
+
+const languages2 = ["C", "C++", "Java", "JavaScript"];
+languages2.splice(1,2, "Swift", "Go");
+//console.log(languages2);
+
+// Додайте 'Рок-н-ролл' в кінець масиву. 
+// Замініть значення в середині масиву на 'Класика'. 
+// Видаліть перший елемент масиву і покажіть його. 
+// Додайте 'Реп' і 'Реггі' на початок масиву. 
+// Виведіть масив в консоль.
+
+const styles = ['Джаз', 'Блюз'];
+styles.splice(2, 0, "Рок-н-ролл")
+styles.slice(1, 1, "Класика")
+styles.slice(0, 1)
+styles.slice(0, 0, "Реп", "Реггі")
+console.log(styles);
