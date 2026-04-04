@@ -168,7 +168,7 @@ const storage = ["apple", "plum", "pear"];
 const item = "plum";
 
 const convertedItem = item.toLowerCase();
-const isIncluded = storage.includes(convertedItem) ;
+const isIncluded = storage.includes(convertedItem);
 let answer;
 
 if (isIncluded) {
