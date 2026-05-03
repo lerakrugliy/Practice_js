@@ -57,3 +57,41 @@ apartment.owner.name = ownerName;
 apartment.price = 75000;
 //apartment.rating = 4.7;
 apartment.tags.push("trusted");
+
+// 1
+const lastWeekTemps = [14, 25, 11];
+const currentWeekTemps = [23, 17, 18];
+const allTemps =[...lastWeekTemps, ...currentWeekTemps] ;
+console.log(allTemps); // [14, 25, 11, 23, 17, 18]
+
+// 2
+const firstGroupScores = [64, 42, 93];
+const secondGroupScores = [89, 14, 51, 26];
+const thirdGroupScores = [29, 47, 18, 97, 81];
+
+const allScores = [...firstGroupScores, ...secondGroupScores, ...thirdGroupScores] ;
+const bestScore = Math.max(...allScores);
+const worstScore = Math.min(...allScores);
+console.log(bestScore, worstScore);
+
+
+// 3
+// Функція getExtremeScores(scores) 
+// приймає масив оцінок (чисел) у параметрі scores.
+// вона повертала об'єкт із двома властивостями:
+// Властивість best має містити найбільше число з масиву scores
+// Властивість worst має містити найменше число з масиву scores.
+// Використовуй оператор (...spread) і методи Math.max() і Math.min().
+const getExtremeScores = function(scores){
+    const best = Math.max(...scores);
+    const worst = Math.min(...scores);
+    return {
+        best,
+        worst,
+    }
+}
+ //{ best: 93, worst: 17 }
+ //{ best: 81, worst: 4 }
+console.log(getExtremeScores([89, 64, 42, 17, 93, 51, 26]));
+console.log(getExtremeScores([19, 7, 4, 17, 81, 24]));
+
