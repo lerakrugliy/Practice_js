@@ -95,3 +95,86 @@ const getExtremeScores = function(scores){
 console.log(getExtremeScores([89, 64, 42, 17, 93, 51, 26]));
 console.log(getExtremeScores([19, 7, 4, 17, 81, 24]));
 
+// Практика разом деструктуризувати
+// Об’єкт car
+const car = {
+  make: 'Toyota',
+  model: 'Camry',
+  year: 2020,
+  features: ['power windows', 'rear camera', 'navigation'],
+  safety: {
+    airbags: true,
+    antilock_brakes: true,
+    stability_control: true
+  }
+}
+
+const {make, model: carModel, year, features = [ ], safety: {airbags, antilock_brakes, stability_control}} = car
+
+console.log(make, carModel, year, features, airbags, antilock_brakes, stability_control);
+
+// Об’єкт movie
+const movie = {
+  title: 'The Shawshank Redemption',
+  director: {
+    name: 'Frank Darabont',
+    nationality: 'American'
+  },
+  actors: ['Tim Robbins', 'Morgan Freeman'],
+  release_year: 1994,
+  ratings: {
+    imdb: 9.3,
+    rotten_tomatoes: 90
+  }
+}
+
+const{title, director: {name: nameDirector, nationality: nationalityDirector}, actors, release_year, ratings} = movie
+console.log(title, nameDirector, nationalityDirector, actors, release_year, ratings);
+
+// Об’єкт books
+const books = {
+  count: 3,
+  list: [
+    {
+      title: 'The Great Gatsby',
+      author: 'F. Scott Fitzgerald',
+      year: 1925
+    },
+    {
+      title: 'To Kill a Mockingbird',
+      author: 'Harper Lee',
+      year: 1960
+    },
+    {
+      title: '1984',
+      author: 'George Orwell',
+      year: 1949
+    }
+  ]
+}
+
+const{count, list} = books
+console.log(count, list);
+
+// 2
+// Напишіть функцію, яка приймає об'єкт, що містить інформацію 
+// про студента (ім'я, прізвище, оцінки за три предмети) та 
+// використовує деструктуризацію для повернення середньої оцінки 
+// студента.
+const student = {
+    name: 'Bruce',
+    surname: 'Lee',
+    grades: [4, 5, 3]
+  };
+
+const calculateAvarageRate = function(student) {
+    let sum = 0;
+    const{grades} = student;
+    for (const grade of grades) {
+        sum += grade
+        console.log(sum);
+    }
+    return sum / grades.length
+}
+
+calculateAvarageRate(student)
