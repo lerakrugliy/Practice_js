@@ -30,7 +30,7 @@ const apartment = {
         this.price = 5034;
     },
     showDescr(){
-        console.log(this.descr);
+        //console.log(this.descr);
         
     },
     showRating(){
@@ -41,7 +41,7 @@ const apartment = {
     }
 } 
 
-console.log(apartment.showRating());
+//console.log(apartment.showRating());
 
 apartment.addTag("trusted")
 apartment.showDescr();
@@ -52,7 +52,7 @@ apartment[key] = {
 
 apartment.owner= {}
 const ownerName = "Genry";
-console.log(apartment);
+//console.log(apartment);
 apartment.owner.name = ownerName;
 apartment.price = 75000;
 //apartment.rating = 4.7;
@@ -62,7 +62,7 @@ apartment.tags.push("trusted");
 const lastWeekTemps = [14, 25, 11];
 const currentWeekTemps = [23, 17, 18];
 const allTemps =[...lastWeekTemps, ...currentWeekTemps] ;
-console.log(allTemps); // [14, 25, 11, 23, 17, 18]
+//console.log(allTemps); // [14, 25, 11, 23, 17, 18]
 
 // 2
 const firstGroupScores = [64, 42, 93];
@@ -72,7 +72,7 @@ const thirdGroupScores = [29, 47, 18, 97, 81];
 const allScores = [...firstGroupScores, ...secondGroupScores, ...thirdGroupScores] ;
 const bestScore = Math.max(...allScores);
 const worstScore = Math.min(...allScores);
-console.log(bestScore, worstScore);
+//console.log(bestScore, worstScore);
 
 
 // 3
@@ -92,8 +92,8 @@ const getExtremeScores = function(scores){
 }
  //{ best: 93, worst: 17 }
  //{ best: 81, worst: 4 }
-console.log(getExtremeScores([89, 64, 42, 17, 93, 51, 26]));
-console.log(getExtremeScores([19, 7, 4, 17, 81, 24]));
+//console.log(getExtremeScores([89, 64, 42, 17, 93, 51, 26]));
+//console.log(getExtremeScores([19, 7, 4, 17, 81, 24]));
 
 // Практика разом деструктуризувати
 // Об’єкт car
@@ -109,9 +109,9 @@ const car = {
   }
 }
 
-const {make, model: carModel, year, features = [ ], safety: {airbags, antilock_brakes, stability_control}} = car
+//const {make, model: carModel, year, features = [ ], safety: {airbags, antilock_brakes, stability_control}} = car
 
-console.log(make, carModel, year, features, airbags, antilock_brakes, stability_control);
+//onsole.log(make, carModel, year, features, airbags, antilock_brakes, stability_control);
 
 // Об’єкт movie
 const movie = {
@@ -128,8 +128,8 @@ const movie = {
   }
 }
 
-const{title, director: {name: nameDirector, nationality: nationalityDirector}, actors, release_year, ratings} = movie
-console.log(title, nameDirector, nationalityDirector, actors, release_year, ratings);
+//const{title, director: {name: nameDirector, nationality: nationalityDirector}, actors, release_year, ratings} = movie
+//console.log(title, nameDirector, nationalityDirector, actors, release_year, ratings);
 
 // Об’єкт books
 const books = {
@@ -153,8 +153,8 @@ const books = {
   ]
 }
 
-const{count, list} = books
-console.log(count, list);
+//const{count, list} = books
+//console.log(count, list);
 
 // 2
 // Напишіть функцію, яка приймає об'єкт, що містить інформацію 
@@ -177,4 +177,102 @@ const calculateAvarageRate = function(student) {
     return sum / grades.length
 }
 
-calculateAvarageRate(student)
+//calculateAvarageRate(student)
+
+
+
+const movie1 = {
+  title: 'The Shawshank Redemption',
+  director: {
+    name: 'Frank Darabont',
+    nationality: 'American'
+  },
+  actors: ['Tim Robbins', 'Morgan Freeman'],
+  release_year: 1994,
+  ratings: {
+    imdb: 9.3,
+    rotten_tomatoes: 90
+  },
+}
+
+//const{actors} = movie1 
+const{actors: [actor1, actor2]} = movie1
+//console.log(actor1, actor2);
+const [actor3, actor4] = movie1.actors;
+//console.log(actor3, actor4);
+
+// Об’єкт car
+const car1 = {
+  make: 'Toyota',
+  model: 'Camry',
+  year: 2020,
+  features: ['power windows', 'rear camera', 'navigation'],
+  safety: {
+    airbags: true,
+    antilock_brakes: true,
+    stability_control: true
+  }
+}
+
+const[feature1, feature2, feature3] = car1.features
+//console.log(feature1, feature2, feature3);
+const{features: [feature4, feature5, feature6]} = car1
+//console.log(feature4, feature5, feature6);
+
+// Напишіть функцію, яка отримує об'єкт 
+// з ім'ям, прізвищем та віком та використовує 
+// деструктуризацію для повернення рядка, 
+// що містить інформацію про цю людину в такому форматі:
+//  "Мене звати Ім'я Прізвище і мені Вік років".
+
+const personInfo = function(personObj) {
+  //console.log(personObj);
+  const{name, lastName, age} = personObj
+  return `Мене звати ${name} ${lastName} мені ${age}`
+}
+
+/*console.log(personInfo({
+  name: "Лєра",
+  lastName: "Круглій",
+  age: 14,
+}));*/
+
+
+
+// Працюємо з колекцією товарів в кошику:
+// Написати методи вказані нижче в коді
+// { name: '🍎', price: 50 }
+// { name: '🍇', price: 70 }
+// { name: '🍋', price: 60 }
+// { name: '🍓', price: 110 }
+ const cart = {
+  items: [],
+  getItems() {
+    return this.items;
+  },
+   add(product) {
+    this.items.push(product);
+    return `Ви додали ${product.name}`
+   },
+   remove(productName) {
+    for (let i = 0; i < this.items.length; i += 1) {
+      if(productName === this.items[i].name){
+        console.log(this.items[i].name);
+        this.items.splice(i, 1)
+      }
+    }
+   },
+   clear() {},
+   countTotalPrice() {},
+   increaseQuantity(productName) {},
+   decreaseQuantity(productName) {},
+ };
+
+console.log(cart.getItems());
+console.log(cart.add({ name: '🍎', price: 50 }));
+console.log(cart.add({ name: '🍇', price: 70 }));
+console.log(cart.add({ name: '🍋', price: 60 }));
+console.log(cart.add({ name: '🍓', price: 110 }));
+console.log(cart.getItems());
+console.log(cart.remove('🍎'));
+console.log(cart.getItems());
