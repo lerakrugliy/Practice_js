@@ -46,75 +46,129 @@ const players = [
 // Використовуючи 👆 масив об’єктів виконай наступні завдання:
 //map()
 // Отримати масив імен всіх гравців
-const playersNames = players.map((item) => item.name);
+//const playersNames = players.map((item) => item.name);
 //console.log(playersNames);
 
 // Збільшити кількість поінтів кожного гравця на 10% (розпорошуємо старий об'єкт)
-const updatedPlayers = players.map((item) => {
-    return {
-        ...item,
-        points: Math.round(item.points * 1.1),
-    }
-});
+//const updatedPlayers = players.map((item) => {
+//    return {
+//        ...item,
+//        points: Math.round(item.points * 1.1),
+//    }
+//});
 //console.log(updatedPlayers);
 
 // Збільшити кількість годин гравця по id.
-const updatedPlayers2 = players.map((item) => {
-    if(item.id === 'player-3'){
-        return{
-            ...item,
-            timePlayed: item.timePlayed + 100,
-        }
-    }
-    return item
-})
+//const updatedPlayers2 = players.map((item) => {
+ //   if(item.id === 'player-3'){
+ //       return{
+  //          ...item,
+  //          timePlayed: item.timePlayed + 100,
+  //      }
+ //   }
+ //   return item
+//})
 //console.log(updatedPlayers2);
 
 //filter()
 // Отримати масив всіх гравців онлайн
-const onlinePlayers = players.filter((item) => {
-    return item.online
-})
+//const onlinePlayers = players.filter((item) => {
+ //   return item.online
+//})
 //console.log(onlinePlayers);
 
 // Отримати масив всіх гравців офлайн
-const offlinePlayers = players.filter((item) => {
-    return item.online === false
-})
-.map((item) => {
-    return item.name
-})
+//const offlinePlayers = players.filter((item) => {
+ //   return item.online === false
+//})
+//.map((item) => {
+//    return item.name
+//})
 //console.log(offlinePlayers);
 
 // Отримати масив всіх хардкорних гравців з часом більше 250
-const hardcorePlayers = players.filter((item) => {
-    return item.timePlayed > 250
-})
+//const hardcorePlayers = players.filter((item) => {
+//    return item.timePlayed > 250
+//})
 //console.log(hardcorePlayers);
 
 //Find()
 // Знайти гравця по id
-const timePlayedById = function(id) {
-    const playerById = players.find(item => {
-        return id === item.id
-    })
-    return playerById
-}
+//const timePlayedById = function(id) {
+//    const playerById = players.find(item => {
+ //       return id === item.id
+//    })
+ //   return playerById
+//}
 
-console.log(timePlayedById('player-2'));
+//console.log(timePlayedById('player-2'));
 // Знайти гравця по імені
-const playerByName = players.find((item) => {
-    return item.name === 'Poly'
-})
-console.log(playerByName);
+//const playerByName = players.find((item) => {
+//    return item.name === 'Poly'
+//})
+//console.log(playerByName);
 
 //every()
 // Перевірити чи всі гравці мають час більше 200
-const isPlayersAllHardcore = players.every((item) => {
-    return item.timePlayed > 200
-})
-console.log(isPlayersAllHardcore);
+//const isPlayersAllHardcore = players.every((item) => {
+//    return item.timePlayed > 200
+//})
+//console.log(isPlayersAllHardcore);
 
 // Перевірити чи всі гравці онлайн
 // some()
 // перевірити чи є хоча б один гравецт не онлайн
+
+
+
+const totalTimePlayed = players.reduce((acc, item) =>{
+    return acc + item.timePlayed;
+}, 0)
+
+//console.log(totalTimePlayed);
+
+const arrayAllName = players.reduce((acc, item) => {
+    return acc + " " + item.name;
+}, "")
+
+//console.log(arrayAllName);
+
+const playersTimePlayedObject = players.reduce((acc, item) => {
+    return {
+        ...acc,
+        [item.name]: item.timePlayed,
+    }
+}, {})
+
+//console.log(playersTimePlayedObject);
+
+
+const playerSortedByPoints = players.toSorted((a, b) => {
+    return a.points - b.points; // в порядку зростання
+})
+.map((item) => {
+    return item.name
+})
+//console.log(playerSortedByPoints);
+
+const sortedByWorstPlayers = players.toSorted((a, b) => {
+    return b.points - a.points;
+})
+.map((item)=> item.name);
+//console.log(sortedByWorstPlayers);
+
+const inAlphabetcalOrder = players.toSorted((a, b) => {
+    return a.name.localeCompare(b.name);
+})
+.map((item)=> item.name);
+//console.log(inAlphabetcalOrder);
+
+
+
+
+const planets1 = ["Earth", "Mars", "Venus", "Jupiter"];
+
+const planetsInReversOrder = planets.toSorted((a, b) => {
+    return b.localeCompare(a);
+})
+console.log(planetsInReversOrder);
